@@ -1,0 +1,11 @@
+interface BasePageProps {
+  children: React.ReactNode;
+}
+
+export default function BasePage({ children }: BasePageProps) {
+  return (
+    <div className="flex justify-center bg-gray-700 text-white">
+      <div className="w-full max-w-screen-lg">{children}</div>
+    </div>
+  );
+}

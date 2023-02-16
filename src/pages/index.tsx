@@ -1,7 +1,12 @@
+import Main from "../components/index/main";
+import BasePage from "../components/utils/basePage";
+
 export default function Home() {
   return (
     <>
-      <div></div>
+      <BasePage>
+        <Main />
+      </BasePage>
     </>
   );
 }
