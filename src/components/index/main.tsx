@@ -1,22 +1,11 @@
+import type { work } from "../../pages";
 import WorkGrid from "./workGrid";
 
-export interface work {
-  id: number;
-  title: string;
-  description: string;
-  href: string;
+interface MainProps {
+  works: work[];
 }
 
-const works: work[] = [
-  {
-    id: 1,
-    title: "To-do List",
-    description: "A to-do list with local and login with remote control",
-    href: "/",
-  },
-];
-
-export default function Main() {
+export default function Main({ works }: MainProps) {
   return (
     <>
       <div>

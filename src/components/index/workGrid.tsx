@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { work } from "./main";
+import type { work } from "../../pages";
 
 interface WorkGridProps {
   work: work[];
