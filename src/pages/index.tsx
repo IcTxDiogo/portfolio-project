@@ -1,4 +1,5 @@
 import Main from "../components/index/main";
+import BaseFooter from "../components/utils/baseFooter";
 import BasePage from "../components/utils/basePage";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <BasePage>
         <Main />
+        <BaseFooter />
       </BasePage>
     </>
   );
