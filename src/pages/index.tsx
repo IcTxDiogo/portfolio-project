@@ -14,7 +14,7 @@ const works: work[] = [
     id: 1,
     title: "To-do List",
     description: "A to-do list with local and login with remote control",
-    href: "/",
+    href: "/list",
   },
 ];
 
@@ -22,8 +22,10 @@ export default function Home() {
   return (
     <>
       <BasePage>
-        <Main works={works} />
-        <BaseFooter />
+        <div>
+          <Main works={works} />
+          <BaseFooter />
+        </div>
       </BasePage>
     </>
   );

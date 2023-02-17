@@ -17,7 +17,7 @@ export default function WorkGrid({ work }: WorkGridProps) {
           <h2 className="mb-2 text-lg font-semibold">
             {item.title.toUpperCase()}
           </h2>
-          <p className="mb-4 ">{item.description}</p>
+          <p className="mb-4 text-justify ">{item.description}</p>
         </Link>
       ))}
     </div>
