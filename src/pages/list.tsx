@@ -5,6 +5,7 @@ import ShowList from "../components/list/showList";
 import type { FormValues } from "../components/list/formList";
 import FormList from "../components/list/formList";
 import Button from "../components/utils/button";
+import BaseFooter from "../components/utils/baseFooter";
 
 export interface Data {
   id: number;
@@ -67,18 +68,21 @@ export default function List() {
 
   return (
     <BasePage>
-      <div className="w-full">
+      <div className="w-full max-w-3xl">
         <ShowList
           list={list}
           setList={setList}
           deleteItem={deleteItem}
           setEdit={setEdit}
         />
+        <Button
+          name={toggle ? "Close" : "New Task"}
+          onClick={() => setToggle((prev) => !prev)}
+        />
         {toggle ? (
           <FormList listSubmit={listSubmit} editItem={edit} setEdit={setEdit} />
-        ) : (
-          <Button name="new Task" onClick={() => setToggle((prev) => !prev)} />
-        )}
+        ) : undefined}
+        <BaseFooter />
       </div>
     </BasePage>
   );

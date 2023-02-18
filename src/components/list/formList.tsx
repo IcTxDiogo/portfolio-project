@@ -45,8 +45,8 @@ export default function FormList({
 
   return (
     <>
-      <div className="rounded-xl bg-gray-600 px-5 pb-2">
-        <h2>New Task</h2>
+      <div className="mt-2 rounded-xl bg-gray-600 px-5 pb-2">
+        <h2 className="p-4">New Task</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid py-2">
             <label className="text-left">

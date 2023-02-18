@@ -40,17 +40,17 @@ export default function ShowList({
       {list.map((item) => (
         <div
           key={item.id}
-          className="my-2 flex justify-between rounded-xl bg-gray-600 px-4 text-left"
+          className="my-2 flex flex-wrap justify-between rounded-xl bg-gray-600 px-4 text-left"
         >
           <div
-            className={`my-2 grid h-fit basis-3/4 divide-y pr-5 ${
+            className={`my-2 grid h-fit basis-7/12 divide-y pr-1 sm:basis-4/5 sm:pr-5 ${
               item.done ? "line-through" : ""
             }`}
           >
             <h2 className="mb-2 text-xl">{item.title.toUpperCase()}</h2>
             <p className="py-2 text-justify">{item.task}</p>
           </div>
-          <div className="grid basis-1/4 gap-1 py-2">
+          <div className="grid basis-4/12 gap-1 py-2 sm:basis-1/5">
             <Button name={"Done"} onClick={toggleDone} id={item.id} />
             <Button name={"Edit"} onClick={handleEdit} id={item.id} />
             <Button name={"Delete"} onClick={handleDelete} id={item.id} />
