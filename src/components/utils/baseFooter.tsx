@@ -5,7 +5,7 @@ export default function BaseFooter() {
     <>
       <footer className="relative bottom-0 w-full px-4 py-4">
         <div className="mx-auto flex flex-col items-center justify-between sm:flex-wrap ">
-          <div className="bas m-4 flex items-center justify-center gap-4">
+          <div className="mb-2 flex items-center justify-center gap-4">
             <a href="https://github.com/IcTxDiogo/">
               <Image
                 src="/github.png"

@@ -18,7 +18,7 @@ const initialState: Data[] = [
   {
     id: 1,
     title: "first task",
-    task: "make a to-do app for save you daily tasks",
+    task: "make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks ",
     done: false,
   },
   {
