@@ -17,7 +17,7 @@ export default function BaseMenu({ menuItems }: Props) {
         {menuItems.map((menuItem, index) => (
           <li key={index}>
             <Link href={menuItem.link}>
-              <Button name={menuItem.name} onClick={() => ""} />
+              <Button name={menuItem.name} />
             </Link>
           </li>
         ))}
