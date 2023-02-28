@@ -3,7 +3,7 @@ import { useForm, useFormState } from "react-hook-form";
 import Button from "../utils/button";
 import type { Dispatch, SetStateAction } from "react";
 import { useEffect } from "react";
-import type { Data } from "../../pages/list";
+import type { todoList } from "@prisma/client";
 
 export type FormValues = {
   title: string;
@@ -11,9 +11,9 @@ export type FormValues = {
 };
 
 interface FormListProps {
-  listSubmit: (data: FormValues, id?: number) => void;
-  editItem?: Data;
-  setEdit: Dispatch<SetStateAction<Data | undefined>>;
+  listSubmit: (data: FormValues, id?: number) => void | Promise<void>;
+  editItem?: todoList;
+  setEdit: Dispatch<SetStateAction<todoList | undefined>>;
 }
 
 export default function FormList({
@@ -27,13 +27,13 @@ export default function FormList({
     control,
   });
 
-  function onSubmit(data: FormValues) {
+  async function onSubmit(data: FormValues) {
     reset();
     if (editItem != undefined) {
       const id = editItem.id;
-      listSubmit(data, id);
+      await listSubmit(data, id);
       setEdit(undefined);
-    } else listSubmit(data);
+    } else await listSubmit(data);
   }
 
   useEffect(() => {
@@ -66,9 +66,9 @@ export default function FormList({
             <label className="text-left">
               Task<span className="text-red-500">*</span>
             </label>
-            <input
-              type="text"
+            <textarea
               id="title"
+              rows={3}
               className="rounded-xl bg-blue-600 p-2 !outline-none"
               {...register("task", {
                 required: { value: true, message: "this field is Required" },
@@ -79,7 +79,9 @@ export default function FormList({
           <Button
             name={editItem ? "Finish  edit" : "Add Task"}
             id={undefined}
-            onClick={() => ""}
+            onClick={() => {
+              ("");
+            }}
           />
         </form>
       </div>

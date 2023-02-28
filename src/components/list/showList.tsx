@@ -1,19 +1,19 @@
 import type { Dispatch, SetStateAction } from "react";
-import type { Data } from "../../pages/list";
 import Button from "../utils/button";
+import type { todoList } from "@prisma/client";
 
 interface ShowListProps {
-  list: Data[];
-  setList: Dispatch<SetStateAction<Data[]>>;
-  deleteItem: (id: number) => void;
-  setEdit: Dispatch<SetStateAction<Data | undefined>>;
+  list: todoList[];
+  setList: Dispatch<SetStateAction<todoList[]>>;
+  deleteItem: (id: number) => void | Promise<void>;
+  handleEdit: (id: number | undefined) => void;
 }
 
 export default function ShowList({
   list,
   setList,
   deleteItem,
-  setEdit,
+  handleEdit,
 }: ShowListProps) {
   function toggleDone(id: number | undefined) {
     const alteredList = list.map((item) => {
@@ -23,20 +23,12 @@ export default function ShowList({
     setList(alteredList);
   }
 
-  function handleEdit(id: number | undefined) {
-    const setList = list.filter((item) => {
-      if (item.id === id) return item;
-    });
-    setEdit(setList[0]);
-  }
-
-  function handleDelete(id: number | undefined) {
-    if (id != undefined) deleteItem(id);
+  async function handleDelete(id: number | undefined) {
+    if (id != undefined) await deleteItem(id);
   }
 
   return (
     <div>
-      <h1 className="py-5 text-center text-4xl">To-do List</h1>
       {list.map((item) => (
         <div
           key={item.id}
