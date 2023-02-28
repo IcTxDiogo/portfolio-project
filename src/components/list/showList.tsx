@@ -7,6 +7,7 @@ interface ShowListProps {
   setList: Dispatch<SetStateAction<todoList[]>>;
   deleteItem: (id: number) => void | Promise<void>;
   handleEdit: (id: number | undefined) => void;
+  handleDone?: (id: number | undefined, done: boolean) => Promise<void>;
 }
 
 export default function ShowList({
@@ -14,13 +15,21 @@ export default function ShowList({
   setList,
   deleteItem,
   handleEdit,
+  handleDone,
 }: ShowListProps) {
-  function toggleDone(id: number | undefined) {
-    const alteredList = list.map((item) => {
-      if (item.id === id) return { ...item, done: !item.done };
-      return item;
-    });
-    setList(alteredList);
+  async function toggleDone(id: number | undefined) {
+    if (handleDone) {
+      const actualDone = list.find((item) => {
+        if (item.id === id) return item;
+      });
+      if (actualDone) await handleDone(id, actualDone.done);
+    } else {
+      const alteredList = list.map((item) => {
+        if (item.id === id) return { ...item, done: !item.done };
+        return item;
+      });
+      setList(alteredList);
+    }
   }
 
   async function handleDelete(id: number | undefined) {

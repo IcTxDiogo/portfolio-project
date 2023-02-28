@@ -17,7 +17,9 @@ export default function SyncList() {
   const { mutateAsync: getByEmail } = api.list.getByEmail.useMutation();
   const { mutateAsync: create } = api.list.create.useMutation();
   const { mutateAsync: update } = api.list.update.useMutation();
+  const { mutateAsync: updateDone } = api.list.updateDone.useMutation();
   const { mutateAsync: deleteItems } = api.list.delete.useMutation();
+
   const { data, status, error } = api.list.getByEmailQuery.useQuery({
     userEmail: sessionData?.user.email ? sessionData?.user.email : "",
   });
@@ -30,8 +32,6 @@ export default function SyncList() {
   }, [data, status, error]);
 
   async function handleDelete(id: number) {
-    const newList = list.filter((item) => item.id != id);
-    setList(newList);
     await deleteItems({ id: id }).then(updateList);
   }
 
@@ -43,7 +43,12 @@ export default function SyncList() {
     setToggle(true);
   }
 
+  async function handleDone(id: number | undefined, done: boolean) {
+    if (id) await updateDone({ id: id, done: !done }).then(updateList);
+  }
+
   async function handleSubmit(data: FormValues, id?: number) {
+    handleToggle();
     if (id != undefined) {
       await update({ ...data, id: id }).then(updateList);
     } else {
@@ -53,7 +58,6 @@ export default function SyncList() {
         userEmail: sessionData?.user.email ? sessionData?.user.email : "",
       }).then(updateList);
     }
-    handleToggle();
   }
 
   function handleToggle() {
@@ -76,6 +80,7 @@ export default function SyncList() {
         setList={setList}
         deleteItem={handleDelete}
         handleEdit={handleEdit}
+        handleDone={handleDone}
       />
       <Button name={toggle ? "Close" : "New Task"} onClick={handleToggle} />
       {toggle ? (

@@ -77,5 +77,22 @@ export const routerList = createTRPCRouter({
         },
       });
     }),
+  updateDone: publicProcedure
+    .input(
+      z.object({
+        id: z.number(),
+        done: z.boolean(),
+      })
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.todoList.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          done: input.done,
+        },
+      });
+    }),
 });
 4;

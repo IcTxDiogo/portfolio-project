@@ -1,6 +1,8 @@
+import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+
 import BasePage from "../components/utils/basePage";
 import BaseFooter from "../components/utils/baseFooter";
-import { signIn, signOut, useSession } from "next-auth/react";
 import LocalList from "../components/list/localList";
 import Button from "../components/utils/button";
 import SyncList from "../components/list/syncList";
@@ -12,7 +14,9 @@ export default function List() {
     <BasePage>
       <div className="w-full max-w-3xl">
         <div className="flex items-center justify-between">
-          <h1 className="py-5 text-center text-4xl">To-do List</h1>
+          <Link href={"/"}>
+            <h2 className="text-2xl">Home</h2>
+          </Link>
           <div>
             {sessionData ? (
               <span> Hello {sessionData.user.name} </span>
@@ -25,6 +29,7 @@ export default function List() {
             />
           </div>
         </div>
+        <h1 className="py-5 text-center text-4xl">To-do List</h1>
         {sessionData ? <SyncList /> : <LocalList />}
         <BaseFooter />
       </div>
