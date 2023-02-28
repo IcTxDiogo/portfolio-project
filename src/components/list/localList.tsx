@@ -9,22 +9,15 @@ import type { todoList } from "@prisma/client";
 const initialState: todoList[] = [
   {
     id: 1,
-    title: "first task",
-    task: "make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks make a to-do app for save you daily tasks ",
+    title: "create a new task",
+    task: "create a task with a title and a short description",
     done: false,
     userEmail: "guest@nodomain.com",
   },
   {
     id: 2,
-    title: "first task",
-    task: "make a to-do app for save you daily tasks",
-    done: false,
-    userEmail: "guest@nodomain.com",
-  },
-  {
-    id: 3,
-    title: "first task",
-    task: "make a to-do app for save you daily tasks",
+    title: "study a new programming language",
+    task: "find the most popular and study about",
     done: false,
     userEmail: "guest@nodomain.com",
   },

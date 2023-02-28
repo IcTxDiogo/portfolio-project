@@ -21,7 +21,7 @@ const works: work[] = [
 export default function Home() {
   return (
     <>
-      <BasePage>
+      <BasePage title="Portfolio">
         <div>
           <Main works={works} />
           <BaseFooter />

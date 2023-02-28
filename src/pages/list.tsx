@@ -11,7 +11,7 @@ export default function List() {
   const { data: sessionData } = useSession();
 
   return (
-    <BasePage>
+    <BasePage title="Todo list">
       <div className="w-full max-w-3xl">
         <div className="my-2 flex items-center justify-between ">
           <Link href={"/"}>

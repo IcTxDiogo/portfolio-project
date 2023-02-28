@@ -49,7 +49,7 @@ export default function ShowList({
               item.done ? "line-through" : ""
             }`}
           >
-            <h2 className="mb-2 text-xl">{item.title.toUpperCase()}</h2>
+            <h2 className="my-1 text-xl">{item.title.toUpperCase()}</h2>
             <p className="py-2 text-justify">{item.task}</p>
           </div>
           <div className="flex w-full flex-col justify-center py-2 us:w-40">
