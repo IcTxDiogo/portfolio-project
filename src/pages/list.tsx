@@ -13,7 +13,7 @@ export default function List() {
   return (
     <BasePage>
       <div className="w-full max-w-3xl">
-        <div className="flex items-center justify-between">
+        <div className="my-2 flex items-center justify-between ">
           <Link href={"/"}>
             <h2 className="text-2xl">Home</h2>
           </Link>
