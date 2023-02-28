@@ -17,6 +17,8 @@ model todoList {
     id   Int @id @default(autoincrement())
     title String
     task String
+    done Boolean
+    userEmail String
 }
 
 // Necessary for Next auth
