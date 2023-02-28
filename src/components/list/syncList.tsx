@@ -1,12 +1,13 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-import ShowList from "./showList";
-import FormList from "./formList";
-import Button from "../utils/button";
-import { api } from "../../utils/api";
-import type { FormValues } from "./formList";
+import type { FormValues } from "./";
 import type { todoList } from "@prisma/client";
+
+import { ShowList, FormList } from "./";
+import { Button } from "@/components/utils";
+
+import { api } from "../../utils/api";
 
 export default function SyncList() {
   const [list, setList] = useState([] as todoList[]);

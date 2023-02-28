@@ -1,20 +1,13 @@
-import Main from "../components/index/main";
-import BaseFooter from "../components/utils/baseFooter";
-import BasePage from "../components/utils/basePage";
+import { Main } from "@/components/indexPage";
+import type { Work } from "@/components/indexPage";
+import { BasePage, BaseFooter } from "@/components/utils";
 
-export interface work {
-  id: number;
-  title: string;
-  description: string;
-  href: string;
-}
-
-const works: work[] = [
+const works: Work[] = [
   {
     id: 1,
     title: "To-do List",
     description: "A to-do list with local and login with remote control",
-    href: "/list",
+    href: "/projects/list",
   },
 ];
 

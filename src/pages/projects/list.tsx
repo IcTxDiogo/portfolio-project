@@ -1,11 +1,8 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-import BasePage from "../components/utils/basePage";
-import BaseFooter from "../components/utils/baseFooter";
-import LocalList from "../components/list/localList";
-import Button from "../components/utils/button";
-import SyncList from "../components/list/syncList";
+import { BasePage, BaseFooter, Button } from "@/components/utils";
+import { LocalList, SyncList } from "@/components/list";
 
 export default function List() {
   const { data: sessionData } = useSession();

@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import ShowList from "./showList";
-import type { FormValues } from "./formList";
-import FormList from "./formList";
-import Button from "../utils/button";
+import type { FormValues } from "./";
 import type { todoList } from "@prisma/client";
+
+import { ShowList, FormList } from "@/components/list";
+import { Button } from "@/components/utils/";
 
 const initialState: todoList[] = [
   {

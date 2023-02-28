@@ -1,8 +1,9 @@
 import Link from "next/link";
-import type { work } from "../../pages";
+
+import type { Work } from "./";
 
 interface WorkGridProps {
-  work: work[];
+  work: Work[];
 }
 
 export default function WorkGrid({ work }: WorkGridProps) {

@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { useForm, useFormState } from "react-hook-form";
-import Button from "../utils/button";
-import type { Dispatch, SetStateAction } from "react";
 import { useEffect } from "react";
-import type { todoList } from "@prisma/client";
 
-export type FormValues = {
-  title: string;
-  task: string;
-};
+import type { Dispatch, SetStateAction } from "react";
+import type { todoList } from "@prisma/client";
+import type { FormValues } from "./";
+
+import { Button } from "@/components/utils/";
 
 interface FormListProps {
   listSubmit: (data: FormValues, id?: number) => void | Promise<void>;

@@ -1,8 +1,8 @@
-import type { work } from "../../pages";
-import WorkGrid from "./workGrid";
+import { WorkGrid } from "./";
+import type { Work } from "./";
 
 interface MainProps {
-  works: work[];
+  works: Work[];
 }
 
 export default function Main({ works }: MainProps) {
