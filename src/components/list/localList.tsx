@@ -69,9 +69,10 @@ export default function LocalList() {
       const formatData = formatFormData(data);
       setList((prev) => [...prev, formatData]);
     }
+    handleToggle();
   }
 
-  function handleEdit(id: number | undefined) {
+  function handleEdit(id: number) {
     const setList = list.find((item) => {
       if (item.id === id) return item;
     });
@@ -92,7 +93,11 @@ export default function LocalList() {
         deleteItem={handleDelete}
         handleEdit={handleEdit}
       />
-      <Button name={toggle ? "Close" : "New Task"} onClick={handleToggle} />
+      <Button
+        name={toggle ? "Close" : "New Task"}
+        id={0}
+        onClick={handleToggle}
+      />
       {toggle ? (
         <FormList listSubmit={handleSubmit} editItem={edit} setEdit={setEdit} />
       ) : undefined}

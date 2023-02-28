@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
+
 import Button from "../utils/button";
 import type { todoList } from "@prisma/client";
 
@@ -6,8 +7,8 @@ interface ShowListProps {
   list: todoList[];
   setList: Dispatch<SetStateAction<todoList[]>>;
   deleteItem: (id: number) => void | Promise<void>;
-  handleEdit: (id: number | undefined) => void;
-  handleDone?: (id: number | undefined, done: boolean) => Promise<void>;
+  handleEdit: (id: number) => void;
+  handleDone?: (id: number, done: boolean) => Promise<void>;
 }
 
 export default function ShowList({
@@ -17,7 +18,7 @@ export default function ShowList({
   handleEdit,
   handleDone,
 }: ShowListProps) {
-  async function toggleDone(id: number | undefined) {
+  async function toggleDone(id: number) {
     if (handleDone) {
       const actualDone = list.find((item) => {
         if (item.id === id) return item;
@@ -32,8 +33,8 @@ export default function ShowList({
     }
   }
 
-  async function handleDelete(id: number | undefined) {
-    if (id != undefined) await deleteItem(id);
+  async function handleDelete(id: number) {
+    await deleteItem(id);
   }
 
   return (

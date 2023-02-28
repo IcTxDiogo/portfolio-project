@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 interface ButtonProps {
   name: string;
-  id?: number;
-  onClick?: (id: number | undefined) => void | Promise<void>;
+  id: number;
+  onClick?: (id: number) => void | Promise<void>;
 }
 
 export default function Button({ name, id, onClick }: ButtonProps) {

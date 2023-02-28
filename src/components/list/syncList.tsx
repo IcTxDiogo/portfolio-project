@@ -1,11 +1,12 @@
-import type { todoList } from "@prisma/client";
-import { useEffect, useState } from "react";
-import ShowList from "./showList";
-import Button from "../utils/button";
-import type { FormValues } from "./formList";
-import FormList from "./formList";
-import { api } from "../../utils/api";
 import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+
+import ShowList from "./showList";
+import FormList from "./formList";
+import Button from "../utils/button";
+import { api } from "../../utils/api";
+import type { FormValues } from "./formList";
+import type { todoList } from "@prisma/client";
 
 export default function SyncList() {
   const [list, setList] = useState([] as todoList[]);
@@ -35,7 +36,7 @@ export default function SyncList() {
     await deleteItems({ id: id }).then(updateList);
   }
 
-  function handleEdit(id: number | undefined) {
+  function handleEdit(id: number) {
     const setList = list.find((item) => {
       if (item.id === id) return item;
     });
@@ -43,7 +44,7 @@ export default function SyncList() {
     setToggle(true);
   }
 
-  async function handleDone(id: number | undefined, done: boolean) {
+  async function handleDone(id: number, done: boolean) {
     if (id) await updateDone({ id: id, done: !done }).then(updateList);
   }
 
@@ -82,7 +83,11 @@ export default function SyncList() {
         handleEdit={handleEdit}
         handleDone={handleDone}
       />
-      <Button name={toggle ? "Close" : "New Task"} onClick={handleToggle} />
+      <Button
+        name={toggle ? "Close" : "New Task"}
+        id={0}
+        onClick={handleToggle}
+      />
       {toggle ? (
         <FormList listSubmit={handleSubmit} editItem={edit} setEdit={setEdit} />
       ) : undefined}

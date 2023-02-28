@@ -26,6 +26,7 @@ export default function List() {
             <Button
               name={sessionData ? "Sign out" : "Sign in"}
               onClick={sessionData ? () => void signOut() : () => void signIn()}
+              id={0}
             />
           </div>
         </div>

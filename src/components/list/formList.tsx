@@ -76,13 +76,7 @@ export default function FormList({
             />
             {errors.task && <p>{errors.task.message}</p>}
           </div>
-          <Button
-            name={editItem ? "Finish  edit" : "Add Task"}
-            id={undefined}
-            onClick={() => {
-              ("");
-            }}
-          />
+          <Button name={editItem ? "Finish  edit" : "Add Task"} id={0} />
         </form>
       </div>
     </>
