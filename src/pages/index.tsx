@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <BasePage title="Portfolio">
-        <div>
+        <div className="max-w-4xl">
           <Main works={works} />
           <BaseFooter />
         </div>
