@@ -22,7 +22,8 @@ declare module "next-auth" {
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    async signIn({ user }) {
+    //this allows only those in the database to log in
+    /* async signIn({ user }) {
       if (user.email != null) {
         const isAllowedToSignIn = await prisma.alloyAccount.findFirst({
           where: {
@@ -32,7 +33,7 @@ export const authOptions: NextAuthOptions = {
         if (isAllowedToSignIn) return true;
       }
       return false;
-    },
+    }, */
     session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
