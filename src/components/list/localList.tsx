@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { IoAddSharp, IoCloseSharp } from "react-icons/io5";
 
 import type { FormValues } from "./";
 import type { todoList } from "@prisma/client";
 
 import { ShowList, FormList } from "@/components/list";
-import { Button } from "@/components/utils/";
+import { Button, iconSize } from "@/components/utils/";
 
 const initialState: todoList[] = [
   {
@@ -65,12 +66,14 @@ export default function LocalList() {
     handleToggle();
   }
 
-  function handleEdit(id: number) {
-    const setList = list.find((item) => {
-      if (item.id === id) return item;
-    });
-    setEdit(setList);
-    setToggle(true);
+  function handleEdit(id?: number) {
+    if (id) {
+      const setList = list.find((item) => {
+        if (item.id === id) return item;
+      });
+      setEdit(setList);
+      setToggle(true);
+    }
   }
 
   function handleToggle() {
@@ -79,21 +82,23 @@ export default function LocalList() {
   }
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       <ShowList
         list={list}
         setList={setList}
         deleteItem={handleDelete}
         handleEdit={handleEdit}
       />
-      <Button
-        name={toggle ? "Close" : "New Task"}
-        id={0}
-        onClick={handleToggle}
-      />
+      <Button onClick={handleToggle}>
+        {toggle ? (
+          <IoCloseSharp size={iconSize} />
+        ) : (
+          <IoAddSharp size={iconSize} />
+        )}
+      </Button>
       {toggle ? (
         <FormList listSubmit={handleSubmit} editItem={edit} setEdit={setEdit} />
       ) : undefined}
-    </>
+    </div>
   );
 }

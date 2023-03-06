@@ -2,21 +2,22 @@
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-### Here you will find my personal works developed for studies and demonstrate my skills with languages, libraries and framework, of the js ecosystem
+## Here you will find my personal works developed for studies and demonstrate my skills with languages, libraries and framework, of the js ecosystem
 
-I'm using in this project:
+### I'm using in this project:
 
-- [Next.js](https://nextjs.org)
 - [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
 - [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 - [Zod](https://zod.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Icons](https://react-icons.github.io/react-icons)
 
-Develop helper:
+### Develop helper:
 
 - [Typescript](https://www.typescriptlang.org/)
 - [Prettier](https://prettier.io/)
 - [Eslint](https://eslint.org/)
+- [Tailwind CSS](https://tailwindcss.com/)

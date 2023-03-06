@@ -43,8 +43,8 @@ export default function FormList({
 
   return (
     <>
-      <div className="mt-2 rounded-xl bg-gray-600 px-5 pb-2">
-        <h2 className="p-4">New Task</h2>
+      <div className="mt-2 rounded-xl bg-gray-600 px-5 pb-2 us:w-11/12">
+        <h2 className="p-4 text-center text-xl">New Task</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid py-2">
             <label className="text-left">
@@ -74,7 +74,7 @@ export default function FormList({
             />
             {errors.task && <p>{errors.task.message}</p>}
           </div>
-          <Button name={editItem ? "Finish  edit" : "Add Task"} id={0} />
+          <Button>{editItem ? "Finish  edit" : "Add Task"}</Button>
         </form>
       </div>
     </>

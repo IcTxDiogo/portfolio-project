@@ -1,13 +1,15 @@
 import type { Dispatch, SetStateAction } from "react";
+import { MdDone, MdRemoveDone, MdEdit, MdDelete } from "react-icons/md";
 
 import Button from "../utils/button";
 import type { todoList } from "@prisma/client";
+import { iconSize } from "../utils";
 
 interface ShowListProps {
   list: todoList[];
   setList: Dispatch<SetStateAction<todoList[]>>;
   deleteItem: (id: number) => void | Promise<void>;
-  handleEdit: (id: number) => void;
+  handleEdit: (id?: number) => void;
   handleDone?: (id: number, done: boolean) => Promise<void>;
 }
 
@@ -18,27 +20,29 @@ export default function ShowList({
   handleEdit,
   handleDone,
 }: ShowListProps) {
-  async function toggleDone(id: number) {
-    if (handleDone) {
-      const actualDone = list.find((item) => {
-        if (item.id === id) return item;
-      });
-      if (actualDone) await handleDone(id, actualDone.done);
-    } else {
-      const alteredList = list.map((item) => {
-        if (item.id === id) return { ...item, done: !item.done };
-        return item;
-      });
-      setList(alteredList);
+  async function toggleDone(id?: number) {
+    if (id) {
+      if (handleDone) {
+        const actualDone = list.find((item) => {
+          if (item.id === id) return item;
+        });
+        if (actualDone) await handleDone(id, actualDone.done);
+      } else {
+        const alteredList = list.map((item) => {
+          if (item.id === id) return { ...item, done: !item.done };
+          return item;
+        });
+        setList(alteredList);
+      }
     }
   }
 
-  async function handleDelete(id: number) {
-    await deleteItem(id);
+  async function handleDelete(id?: number) {
+    if (id) await deleteItem(id);
   }
 
   return (
-    <div>
+    <div className="us:w-11/12">
       {list.map((item) => (
         <div
           key={item.id}
@@ -53,9 +57,19 @@ export default function ShowList({
             <p className="py-2 text-justify">{item.task}</p>
           </div>
           <div className="flex w-full flex-col justify-center py-2 us:w-40">
-            <Button name={"Done"} onClick={toggleDone} id={item.id} />
-            <Button name={"Edit"} onClick={handleEdit} id={item.id} />
-            <Button name={"Delete"} onClick={handleDelete} id={item.id} />
+            <Button onClick={toggleDone} id={item.id}>
+              {item.done ? (
+                <MdRemoveDone size={iconSize} />
+              ) : (
+                <MdDone size={iconSize} />
+              )}
+            </Button>
+            <Button onClick={handleEdit} id={item.id}>
+              <MdEdit size={iconSize} />
+            </Button>
+            <Button onClick={handleDelete} id={item.id}>
+              <MdDelete size={iconSize} />
+            </Button>
           </div>
         </div>
       ))}
