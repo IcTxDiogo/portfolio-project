@@ -11,6 +11,15 @@ const works: Work[] = [
   },
 ];
 
+const challenges: Work[] = [
+  {
+    id: 1,
+    title: "Qr-code",
+    description: "this is the first challenge from Frontend Mentor",
+    href: "/challenges/qrCode",
+  },
+];
+
 export default function Home() {
   return (
     <BasePage title="Portfolio" className="max-w-4xl us:w-3/4">
@@ -22,6 +31,12 @@ export default function Home() {
         </h3>
       </div>
       <WorkGrid work={works} />
+      <div className="m-4 text-center">
+        <h3 className="text-base sm:text-xl">
+          Take a look at Solved challenges
+        </h3>
+      </div>
+      <WorkGrid work={challenges} />
       <BaseFooter isHome={true} />
     </BasePage>
   );
