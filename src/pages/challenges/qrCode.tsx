@@ -16,7 +16,7 @@ export default function QrCode() {
         <div className=" bg-white p-4 text-black">
           <Image
             alt="QR-code"
-            src="/image-qr-code.png"
+            src="/challenges/qr_code/image-qr-code.png"
             width={576}
             height={576}
             priority

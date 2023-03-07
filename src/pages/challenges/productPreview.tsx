@@ -13,7 +13,7 @@ export default function ProductPreview() {
         <Image
           className="rounded-t-3xl"
           alt="perfume"
-          src="/image-product-mobile.jpg"
+          src="/challenges/product/image-product-mobile.jpg"
           width={668}
           height={480}
         />
@@ -22,7 +22,7 @@ export default function ProductPreview() {
         <Image
           className="rounded-l-3xl"
           alt="perfume"
-          src="/image-product-desktop.jpg"
+          src="/challenges/product/image-product-desktop.jpg"
           width={668}
           height={480}
         />
