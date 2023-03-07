@@ -15,8 +15,14 @@ const challenges: Work[] = [
   {
     id: 1,
     title: "Qr-code",
-    description: "this is the first challenge from Frontend Mentor",
+    description: "this is the Qr-code challenge from Frontend Mentor",
     href: "/challenges/qrCode",
+  },
+  {
+    id: 2,
+    title: "Results summary",
+    description: "this is the Results summary challenge from Frontend Mentor",
+    href: "/challenges/resultsSummary",
   },
 ];
 
