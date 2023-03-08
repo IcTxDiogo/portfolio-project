@@ -30,6 +30,12 @@ const challenges: Work[] = [
     description: "this is the Product preview challenge from Frontend Mentor",
     href: "/challenges/productPreview",
   },
+  {
+    id: 4,
+    title: "News homepage",
+    description: "this is the News homepage challenge from Frontend Mentor",
+    href: "/challenges/newsHomepage",
+  },
 ];
 
 export default function Home() {
