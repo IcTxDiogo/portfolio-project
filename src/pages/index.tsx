@@ -4,7 +4,6 @@ import { BasePage, BaseFooter } from "@/components/utils";
 
 const works: Work[] = [
   {
-    id: 1,
     title: "To-do List",
     description: "A to-do list with local and login with remote control",
     href: "/projects/list",
@@ -13,25 +12,21 @@ const works: Work[] = [
 
 const challenges: Work[] = [
   {
-    id: 1,
     title: "Qr-code",
     description: "this is the Qr-code challenge from Frontend Mentor",
     href: "/challenges/qrCode",
   },
   {
-    id: 2,
     title: "Results summary",
     description: "this is the Results summary challenge from Frontend Mentor",
     href: "/challenges/resultsSummary",
   },
   {
-    id: 3,
     title: "Product preview",
     description: "this is the Product preview challenge from Frontend Mentor",
     href: "/challenges/productPreview",
   },
   {
-    id: 4,
     title: "News homepage",
     description: "this is the News homepage challenge from Frontend Mentor",
     href: "/challenges/newsHomepage",
